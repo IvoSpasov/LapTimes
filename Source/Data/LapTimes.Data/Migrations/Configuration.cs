@@ -1,5 +1,6 @@
-namespace LapTimes.Data.Migrations
+﻿namespace LapTimes.Data.Migrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,18 +16,28 @@ namespace LapTimes.Data.Migrations
 
         protected override void Seed(LapTimesDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var circuit1 = new Circuit() { Name = "Nürburgring" };
+            context.Circuits.AddOrUpdate(c => c.Name, circuit1);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var vehicle1 = new Vehicle() { Manufacturer = "Nissan", Model = "GTR Nismo" };
+            context.Vehicles.AddOrUpdate(v => v.Model, vehicle1);
+
+            var driver1 = new Driver()
+            {
+                FirstName = "Michael",
+                LastName = "Krumm",
+                Vehicles = { vehicle1 }
+            };
+            context.Drivers.AddOrUpdate(d => d.FirstName, driver1);
+
+            var lapTime1 = new LapTime()
+            {
+                Time = new TimeSpan(0, 0, 7, 8, 69),
+                RecordedOn = new DateTime(2013, 9, 30),
+                CircuitId = circuit1.Id,
+                DriverId = driver1.Id
+            };
+            context.LapTimes.AddOrUpdate(l => l.Time, lapTime1);
         }
     }
 }

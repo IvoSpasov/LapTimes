@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Driver
     {
@@ -19,7 +20,14 @@
         [Required]
         public string FirstName { get; set; }
 
+        [Required]
         public string LastName { get; set; }
+
+        [NotMapped]
+        public string FullName
+        {
+            get { return this.FirstName + " " + this.LastName; }
+        }
 
         public virtual ICollection<LapTime> LapTimes
         {
