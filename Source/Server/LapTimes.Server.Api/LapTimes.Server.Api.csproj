@@ -285,6 +285,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\LapTimes.Data.Models\LapTimes.Data.Models.csproj">
+      <Project>{0f25f919-cde8-4086-97a4-48184817abe3}</Project>
+      <Name>LapTimes.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\LapTimes.Data\LapTimes.Data.csproj">
+      <Project>{9f75c683-1a1f-447e-abed-3277cb1aa40f}</Project>
+      <Name>LapTimes.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
