@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -231,12 +235,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CircuitsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Circuit\CircuitResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -319,6 +323,14 @@
     <ProjectReference Include="..\..\Data\LapTimes.Data\LapTimes.Data.csproj">
       <Project>{9f75c683-1a1f-447e-abed-3277cb1aa40f}</Project>
       <Name>LapTimes.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LapTimes.Common\LapTimes.Common.csproj">
+      <Project>{e8e712fb-b3a3-4662-8645-7fb09357edf2}</Project>
+      <Name>LapTimes.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LapTimes.Server.Infrastructure\LapTimes.Server.Infrastructure.csproj">
+      <Project>{4fd0434d-d55d-46bc-994c-7ceac2c1e019}</Project>
+      <Name>LapTimes.Server.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
