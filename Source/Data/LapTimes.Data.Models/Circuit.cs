@@ -2,8 +2,9 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Common.Models;
 
-    public class Circuit
+    public class Circuit : AuditInfo
     {
         private ICollection<LapTime> lapTimes;
 

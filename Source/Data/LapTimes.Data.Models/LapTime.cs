@@ -2,8 +2,9 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using Common.Models;
 
-    public class LapTime
+    public class LapTime : AuditInfo
     {
         public int Id { get; set; }
 

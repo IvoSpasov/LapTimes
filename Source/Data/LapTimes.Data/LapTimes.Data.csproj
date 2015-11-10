@@ -66,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LapTimes.Data.Common\LapTimes.Data.Common.csproj">
+      <Project>{253a44cd-a7c4-4724-bf9f-1c0ebd068a66}</Project>
+      <Name>LapTimes.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LapTimes.Data.Models\LapTimes.Data.Models.csproj">
       <Project>{0f25f919-cde8-4086-97a4-48184817abe3}</Project>
       <Name>LapTimes.Data.Models</Name>

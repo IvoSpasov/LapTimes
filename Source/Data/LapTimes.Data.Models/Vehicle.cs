@@ -2,8 +2,9 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Common.Models;
 
-    public class Vehicle
+    public class Vehicle : AuditInfo
     {
         private ICollection<Driver> drivers;
 
