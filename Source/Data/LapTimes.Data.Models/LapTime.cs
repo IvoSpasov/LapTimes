@@ -1,11 +1,13 @@
 ﻿namespace LapTimes.Data.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     public class LapTime
     {
         public int Id { get; set; }
 
+        [Required]
         public TimeSpan Time { get; set; }
 
         public DateTime RecordedOn { get; set; }
