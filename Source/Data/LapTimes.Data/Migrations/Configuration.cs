@@ -1,8 +1,10 @@
 ﻿namespace LapTimes.Data.Migrations
 {
-    using Models;
     using System;
     using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    using Models;
 
     public sealed class Configuration : DbMigrationsConfiguration<LapTimesDbContext>
     {
@@ -85,10 +87,14 @@
                 Circuit = suzuka,
                 Driver = tsuchiya
             };
-            context.LapTimes.AddOrUpdate(l => l.Time, lapTime1);
-            context.LapTimes.AddOrUpdate(l => l.Time, lapTime2);
-            context.LapTimes.AddOrUpdate(l => l.Time, lapTime3);
-            context.LapTimes.AddOrUpdate(l => l.Time, lapTime4);
+
+            if (!context.LapTimes.Any())
+            {
+                context.LapTimes.AddOrUpdate(l => l.Time, lapTime1);
+                context.LapTimes.AddOrUpdate(l => l.Time, lapTime2);
+                context.LapTimes.AddOrUpdate(l => l.Time, lapTime3);
+                context.LapTimes.AddOrUpdate(l => l.Time, lapTime4);
+            }
         }
     }
 }
